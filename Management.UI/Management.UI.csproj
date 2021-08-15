@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Management.Commons\Management.Commons.csproj" />
+    <ProjectReference Include="..\Management.Models\Management.Models.csproj" />
+    <ProjectReference Include="..\Management.Data\Management.Data.csproj" />
+    <ProjectReference Include="..\Management.BusinessLogic\Management.BusinessLogic.csproj" />
+    <ProjectReference Include="..\TestProject\TestProject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

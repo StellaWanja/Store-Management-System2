@@ -1,0 +1,184 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Data\\Management.Data.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Commons\\Management.Commons.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Commons\\Management.Commons.csproj",
+        "projectName": "Management.Commons",
+        "projectPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Commons\\Management.Commons.csproj",
+        "packagesPath": "C:\\Users\\wanja\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Commons\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wanja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Data\\Management.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Data\\Management.Data.csproj",
+        "projectName": "Management.Data",
+        "projectPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Data\\Management.Data.csproj",
+        "packagesPath": "C:\\Users\\wanja\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wanja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Models\\Management.Models.csproj": {
+                "projectPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Models\\Management.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Models\\Management.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Models\\Management.Models.csproj",
+        "projectName": "Management.Models",
+        "projectPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Models\\Management.Models.csproj",
+        "packagesPath": "C:\\Users\\wanja\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wanja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Commons\\Management.Commons.csproj": {
+                "projectPath": "C:\\Users\\wanja\\Desktop\\PROJECTS\\Store-Management-System2\\Management.Commons\\Management.Commons.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
