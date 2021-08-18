@@ -2,6 +2,7 @@ using NUnit.Framework;
 using Moq;
 using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Management.BusinessLogic;
 using Management.Models;
 using Management.Data;
@@ -20,11 +21,17 @@ namespace TestProject
             //create instance of mock test
             var mockIUserDataStore = new Mock<IUserDataStore>();
             //create an instance that holds the result of List<User>
-            var userProperties = _dataStore.ReadUsersFromDatabase().Result;
             //use lambda function
             mockIUserDataStore
                 .Setup(data => data.ReadUsersFromDatabase())
-                .Returns(Task.FromResult(userProperties));
+                .Returns(Task.FromResult(new List<User>
+                { 
+                   new User
+                   {
+                       Email = "stella@gmail.com",
+                       Password = "123#abc"
+                   }
+                }));
 
             //assign value
            _dataStore = mockIUserDataStore.Object;
@@ -36,7 +43,6 @@ namespace TestProject
             //Arrange
             Setup(1);
             UserActions userActions = new UserActions(_dataStore);
-            var userProperties = _dataStore.ReadUsersFromDatabase().Result;
             string email = "stella@gmail.com";
             string password = "abc#123";
 
@@ -46,7 +52,7 @@ namespace TestProject
             //Assert
             Assert.IsNotNull(user);
             //check if the created instance and the value from the method are equal
-            Assert.AreEqual(user, userProperties);
+            Assert.AreEqual(user, 1);
         }
 
         //test if fails
@@ -56,20 +62,13 @@ namespace TestProject
             //Arrange
             Setup(-1);
             UserActions userActions = new UserActions(_dataStore);
-            var userProperties = _dataStore.ReadUsersFromDatabase().Result;
             string email = "stella@gmail.com";
             string password = "abc#123";
             //Act - user = true since it is bool
             var user = await userActions.LoginUser(email,password);
 
             //Assert
-            Assert.AreNotEqual(user, userProperties);
-
-            //Apply a constraint to an actual value, succeeding if the constraint is satisfied and throwing an assertion exception on failure.
-            // Assert.That(
-            //    async ()=> await userActions.LoginUser(),
-            //    Throws.InstanceOf(typeof(TimeoutException))
-            // );
+            Assert.AreNotEqual(user, -1);
         }
     }
 }

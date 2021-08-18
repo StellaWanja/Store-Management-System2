@@ -20,10 +20,7 @@ namespace Management.BusinessLogic
         //create user object and add it to list<customer>
         public async Task<bool> RegisterUser(string firstName, string lastName, string email, string password)
         {
-            UserDataStore dataConnection = new UserDataStore();
-            //Wait - use for async await - return void
-            //.Result - used if method returns value
-            var result = await dataConnection.InsertUserUsingStoredProcedures(firstName, lastName, email, password);
+            var result = await _dataStore.InsertUserUsingStoredProcedures(firstName, lastName, email, password);
             if(true)
             {
                 return result;
@@ -36,8 +33,7 @@ namespace Management.BusinessLogic
         //return values are used to control UI
         public async Task<int> LoginUser(string email, string password)
         {
-            UserDataStore dataConnection = new UserDataStore();
-            var dataList = await dataConnection.ReadUsersFromDatabase();
+            var dataList = await _dataStore.ReadUsersFromDatabase();
             foreach (var user in dataList)
             {
                 if (user.Email == email && user.Password == password)

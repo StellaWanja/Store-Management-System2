@@ -2,6 +2,7 @@ using NUnit.Framework;
 using Moq;
 using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Management.BusinessLogic;
 using Management.Models;
 using Management.Data;
@@ -15,16 +16,25 @@ namespace TestProject
 
         //used without parameters
         [SetUp]
-        private void Setup()
+        private void Setup(bool value = false)
         {
             //create instance of mock test
             var mockIStoreDataStore = new Mock<IStoreDataStore>();
             //create an instance that holds the result of List<Store>
-            var storeProperties = _dataStore.ReadStoresFromDatabase().Result;
             //use lambda function
             mockIStoreDataStore
                 .Setup(data => data.ReadStoresFromDatabase())
-                .Returns(Task.FromResult(storeProperties));
+                .Returns(Task.FromResult(new List<Store>
+                { 
+                    new Store 
+                    {
+                        StoreName = "Kiosk One",
+                        StoreNumber = "123-abc",
+                        StoreType = "Kiosk",
+                        Products = 100,
+                        UserId = "200"
+                    }
+                }));
 
             //assign value
            _dataStore = mockIStoreDataStore.Object;
@@ -34,15 +44,15 @@ namespace TestProject
         public async Task Display_Product_Method_When_Successful()
         {
             //Arrange
+            Setup(true);
             StoreActions storeActions = new StoreActions(_dataStore);
-            var storeProperties = _dataStore.ReadStoresFromDatabase().Result;
             //Act - user = true since it is bool
             var store = await storeActions.DisplayStores();
 
             //Assert
             Assert.IsNotNull(store);
             //check if the created instance and the value from the method are equal
-            Assert.AreEqual(store, storeProperties);
+            Assert.AreEqual(store, true);
         }
 
         //test if fails
@@ -50,8 +60,8 @@ namespace TestProject
         public void Display_Product_Method_When_Not_Successful()
         {
             //Arrange
+            Setup();
             StoreActions storeActions = new StoreActions(_dataStore);
-            var storeProperties = _dataStore.ReadStoresFromDatabase().Result;
             //Act & Assert
             Assert.ThrowsAsync<TimeoutException>( 
                 async () => await storeActions.DisplayStores()

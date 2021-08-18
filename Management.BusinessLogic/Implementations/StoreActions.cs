@@ -18,10 +18,7 @@ namespace Management.BusinessLogic
         //create store method
         public async Task<bool> CreateStore(string storeName, string storeNumber, string storeType, int products, int userId)
         {
-            StoreDataStore dataConnection = new StoreDataStore();
-            //Wait - use for async await - return void
-            //.Result - used if method returns value
-            var result = await dataConnection.InsertStoreUsingStoredProcedures(storeName, storeNumber, storeType, products, userId);
+            var result = await _dataStore.InsertStoreUsingStoredProcedures(storeName, storeNumber, storeType, products, userId);
             if(true)
             {
                 return result;
@@ -29,41 +26,32 @@ namespace Management.BusinessLogic
             throw new TimeoutException("Unable to create user instance at this time"); 
         }
 
-        //save changes to store
-        // public async Task SaveStoreChanges()
-        // {
-        //     await _dataStore.WriteStoreDataToFile();
-        // }
-
         //add product method
         public async Task<bool> AddProduct(int products, string storeNumber)
         {
-            StoreDataStore dataConnection = new StoreDataStore();
-            var result = await dataConnection.UpdateProducts(products, storeNumber);
+            var result = await _dataStore.UpdateProducts(products, storeNumber);
             if(true)
             {
                 return result;
             }
-            throw new TimeoutException("Unable to create user instance at this time"); 
+            throw new TimeoutException("Unable to create store instance at this time"); 
         }
 
         //remove product method
         public async Task<bool> RemoveProduct(string storeNumber)
         {
-            StoreDataStore dataConnection = new StoreDataStore();
-            var result = await dataConnection.DeleteProducts(storeNumber);
+            var result = await _dataStore.DeleteProducts(storeNumber);
             if(true)
             {
                 return result;
             }
-            throw new TimeoutException("Unable to create user instance at this time"); 
+            throw new TimeoutException("Unable to create store instance at this time"); 
         }
 
         //display stores
         public async Task<List<Store>> DisplayStores()
         {
-            StoreDataStore dataConnection = new StoreDataStore();
-            var dataList = await dataConnection.ReadStoresFromDatabase();
+            var dataList = await _dataStore.ReadStoresFromDatabase();
             return dataList;
         }
     }
